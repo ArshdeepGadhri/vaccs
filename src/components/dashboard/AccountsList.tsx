@@ -41,15 +41,18 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
       <div className="flex flex-col md:flex-row gap-4 mb-2">
         <div className="relative w-full flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400" />
-          <Input 
-            placeholder="Search by username..." 
+          <Input
+            placeholder="Search by username..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-9 bg-zinc-900 border-zinc-800 rounded-xl w-full h-11"
           />
         </div>
         <div className="flex flex-row gap-3 w-full md:w-auto">
-          <Select value={statusFilter} onValueChange={setStatusFilter}>
+          <Select
+            value={statusFilter}
+            onValueChange={(value) => setStatusFilter(value ?? 'all')}
+          >
             <SelectTrigger className="flex-1 md:w-[160px] bg-zinc-900 border-zinc-800 rounded-xl h-11">
               <SelectValue placeholder="Filter by status" />
             </SelectTrigger>
@@ -60,8 +63,10 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
               <SelectItem value="sold">Sold</SelectItem>
             </SelectContent>
           </Select>
-
-          <Select value={rankFilter} onValueChange={setRankFilter}>
+          <Select
+            value={rankFilter}
+            onValueChange={(value) => setRankFilter(value ?? 'all')}
+          >
             <SelectTrigger className="flex-1 md:w-[160px] bg-zinc-900 border-zinc-800 rounded-xl h-11">
               <SelectValue placeholder="Filter by rank" />
             </SelectTrigger>
@@ -148,7 +153,7 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
                   {account.status.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
                 </Badge>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-4 text-sm bg-zinc-900/50 rounded-xl p-4">
                 <div>
                   <p className="text-zinc-500 mb-0.5 text-xs">Region</p>
@@ -167,7 +172,7 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
                   <p className="text-zinc-300 font-medium">{account.target_rank}</p>
                 </div>
               </div>
-              
+
               <div className="flex justify-end gap-2 pt-2">
                 <AccountFormModal account={account} mode="edit" />
                 <DeleteAccountDialog id={account.id} username={account.username} />

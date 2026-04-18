@@ -19,11 +19,13 @@ export function DeleteAccountDialog({ id, username }: { id: string, username: st
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-8 w-8 text-zinc-400 hover:text-red-400">
-          <Trash2 className="h-4 w-4" />
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-zinc-400 hover:text-red-400">
+            <Trash2 className="h-4 w-4" />
+          </Button>
+        }
+      />
       <DialogContent className="sm:max-w-[425px] bg-zinc-950 border-zinc-800 text-zinc-100 rounded-2xl">
         <DialogHeader>
           <DialogTitle>Delete Account</DialogTitle>

@@ -44,17 +44,19 @@ export function AccountFormModal({ account, mode }: AccountFormModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        {isEdit ? (
-          <Button variant="ghost" size="icon" className="h-8 w-8 text-zinc-400 hover:text-white">
-            <Edit2 className="h-4 w-4" />
-          </Button>
-        ) : (
-          <Button className="rounded-xl">
-            <Plus className="w-4 h-4 mr-2" /> Add Account
-          </Button>
-        )}
-      </DialogTrigger>
+      <DialogTrigger
+        render={
+          isEdit ? (
+            <Button variant="ghost" size="icon" className="h-8 w-8 text-zinc-400 hover:text-white">
+              <Edit2 className="h-4 w-4" />
+            </Button>
+          ) : (
+            <Button className="rounded-xl">
+              <Plus className="w-4 h-4 mr-2" /> Add Account
+            </Button>
+          )
+        }
+      />
       <DialogContent className="sm:max-w-[500px] bg-zinc-950 border-zinc-800 text-zinc-100 rounded-2xl">
         <DialogHeader>
           <DialogTitle>{isEdit ? 'Edit Account' : 'Add New Account'}</DialogTitle>

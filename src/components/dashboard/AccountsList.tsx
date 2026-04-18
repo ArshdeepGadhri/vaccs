@@ -49,7 +49,7 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
           />
         </div>
         <div className="flex flex-row gap-3 w-full md:w-auto">
-          <Select value={statusFilter} onValueChange={setStatusFilter}>
+          <Select value={statusFilter} onValueChange={(val) => setStatusFilter(val ?? 'all')}>
             <SelectTrigger className="flex-1 md:w-[160px] bg-zinc-900 border-zinc-800 rounded-xl h-11">
               <SelectValue placeholder="Filter by status" />
             </SelectTrigger>
@@ -61,7 +61,7 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
             </SelectContent>
           </Select>
 
-          <Select value={rankFilter} onValueChange={setRankFilter}>
+          <Select value={rankFilter} onValueChange={(val) => setRankFilter(val ?? 'all')}>
             <SelectTrigger className="flex-1 md:w-[160px] bg-zinc-900 border-zinc-800 rounded-xl h-11">
               <SelectValue placeholder="Filter by rank" />
             </SelectTrigger>

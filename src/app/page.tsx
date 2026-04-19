@@ -25,7 +25,7 @@ export default async function Home() {
       {/* Main Hero Content */}
       <div className="z-10 flex flex-col items-center text-center px-4 max-w-4xl -mt-20">
         <h1 className="text-5xl sm:text-6xl md:text-[80px] font-bold tracking-tight text-zinc-100 mb-8 leading-[1.1] selection:bg-amber-500/30">
-          The one shop stop<br className="hidden sm:block" /> for all your accounts
+          The one stop shop<br className="hidden sm:block" /> for all your accounts
         </h1>
 
         <Link href="/login" className="mt-4">

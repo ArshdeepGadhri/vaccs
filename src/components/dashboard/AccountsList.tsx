@@ -30,8 +30,8 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
 
   const filteredAccounts = initialAccounts.filter(acc => {
     const searchLower = searchQuery.toLowerCase()
-    const matchesSearch = acc.username.toLowerCase().includes(searchLower) || 
-                          (acc.riot_id?.toLowerCase().includes(searchLower) ?? false)
+    const matchesSearch = acc.username.toLowerCase().includes(searchLower) ||
+      (acc.riot_id?.toLowerCase().includes(searchLower) ?? false)
     const matchesStatus = statusFilter === 'all' || acc.status === statusFilter
     const matchesRank = rankFilter === 'all' || acc.current_rank === rankFilter
     return matchesSearch && matchesStatus && matchesRank
@@ -44,7 +44,7 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
         <div className="relative w-full flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400" />
           <Input
-            placeholder="Search by username..."
+            placeholder="Search by username or riot id..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-9 bg-zinc-900 border-zinc-800 rounded-xl w-full h-11"

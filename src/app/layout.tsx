@@ -9,8 +9,38 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Dashboard | Gaming Accounts',
-  description: 'Manage gaming accounts with a clean, dark-themed dashboard.',
+  title: {
+    default: 'VACCS | Gaming Account Management',
+    template: '%s | VACCS'
+  },
+  description: 'Manage gaming accounts with a secure, clean, dark-themed dashboard. Track current and peak ranks, region, and login details.',
+  keywords: ['gaming accounts', 'account management', 'dashboard', 'tracking', 'gaming'],
+  authors: [{ name: 'VACCS' }],
+  creator: 'VACCS',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://vaccs.vercel.app',
+    title: 'VACCS | Gaming Account Management',
+    description: 'Manage gaming accounts with a secure, clean, dark-themed dashboard.',
+    siteName: 'VACCS',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'VACCS | Gaming Account Management',
+    description: 'Manage gaming accounts with a secure, clean, dark-themed dashboard.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export default function RootLayout({

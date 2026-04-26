@@ -15,12 +15,13 @@ export default function NotFound() {
           </p>
         </div>
 
-        <div className="pt-4">
-          <Button className="rounded-xl bg-zinc-100 text-zinc-900 hover:bg-white transition-colors">
-            <Link href="/">
-              <Home className="w-4 h-4 mr-2" />
-              Back to Home
-            </Link>
+        <div className="pt-4 flex justify-center">
+          <Button 
+            render={<Link href="/" />}
+            className="rounded-xl bg-zinc-100 text-zinc-900 hover:bg-white transition-all px-6 py-5 text-base font-semibold shadow-lg hover:shadow-zinc-500/20 hover:-translate-y-0.5 border border-zinc-200/50 flex items-center justify-center min-w-[200px]"
+          >
+            <Home className="w-5 h-5 mr-2" />
+            Back to Home
           </Button>
         </div>
       </div>

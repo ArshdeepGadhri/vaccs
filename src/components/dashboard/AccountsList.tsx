@@ -29,7 +29,9 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
   const uniqueRanks = Array.from(new Set(initialAccounts.map(acc => acc.current_rank)))
 
   const filteredAccounts = initialAccounts.filter(acc => {
-    const matchesSearch = acc.username.toLowerCase().includes(searchQuery.toLowerCase())
+    const searchLower = searchQuery.toLowerCase()
+    const matchesSearch = acc.username.toLowerCase().includes(searchLower) || 
+                          (acc.riot_id?.toLowerCase().includes(searchLower) ?? false)
     const matchesStatus = statusFilter === 'all' || acc.status === statusFilter
     const matchesRank = rankFilter === 'all' || acc.current_rank === rankFilter
     return matchesSearch && matchesStatus && matchesRank

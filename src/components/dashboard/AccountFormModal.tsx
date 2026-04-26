@@ -87,6 +87,16 @@ export function AccountFormModal({ account, mode }: AccountFormModalProps) {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
+              <Label htmlFor="peak_rank" className="text-zinc-300">Peak Rank (Optional)</Label>
+              <Input id="peak_rank" name="peak_rank" defaultValue={account?.peak_rank || ''} className="bg-zinc-900 border-zinc-800 rounded-xl" />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="riot_id" className="text-zinc-300">Riot ID (Optional)</Label>
+              <Input id="riot_id" name="riot_id" defaultValue={account?.riot_id || ''} className="bg-zinc-900 border-zinc-800 rounded-xl" />
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
               <Label htmlFor="password" className="text-zinc-300">Password</Label>
               <PasswordInput id="password" name="password" defaultValue={account?.password} required className="bg-zinc-900 border-zinc-800 rounded-xl" />
             </div>

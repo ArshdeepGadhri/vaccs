@@ -17,6 +17,8 @@ export async function createAccount(formData: FormData) {
   const status = formData.get('status') as string
   const notes = formData.get('notes') as string
   const login_email = formData.get('login_email') as string
+  const peak_rank = (formData.get('peak_rank') as string) || null
+  const riot_id = (formData.get('riot_id') as string) || null
 
   const { error } = await supabase
     .from('accounts')
@@ -29,6 +31,8 @@ export async function createAccount(formData: FormData) {
       status,
       notes,
       login_email,
+      peak_rank,
+      riot_id,
       user_id: user.id
     })
 
@@ -55,6 +59,8 @@ export async function updateAccount(id: string, formData: FormData) {
   const status = formData.get('status') as string
   const notes = formData.get('notes') as string
   const login_email = formData.get('login_email') as string
+  const peak_rank = (formData.get('peak_rank') as string) || null
+  const riot_id = (formData.get('riot_id') as string) || null
 
   const { error } = await supabase
     .from('accounts')
@@ -67,6 +73,8 @@ export async function updateAccount(id: string, formData: FormData) {
       status,
       notes,
       login_email,
+      peak_rank,
+      riot_id,
       updated_at: new Date().toISOString()
     })
     .eq('id', id)

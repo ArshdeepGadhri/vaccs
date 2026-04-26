@@ -90,6 +90,7 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
               <TableHead className="text-zinc-400 font-medium h-12 whitespace-nowrap">Rank</TableHead>
               <TableHead className="text-zinc-400 font-medium h-12 whitespace-nowrap">Password</TableHead>
               <TableHead className="text-zinc-400 font-medium h-12 whitespace-nowrap">Status</TableHead>
+              <TableHead className="text-zinc-400 font-medium h-12 whitespace-nowrap">Notes</TableHead>
               <TableHead className="text-right text-zinc-400 font-medium h-12 whitespace-nowrap">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -105,6 +106,7 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
                 <TableRow key={account.id} className="border-zinc-800/50 hover:bg-zinc-900/50 transition-colors">
                   <TableCell className="font-medium text-zinc-200 whitespace-nowrap">
                     <div>{account.username}</div>
+                    {account.riot_id && <div className="text-xs text-zinc-400 font-normal">Riot ID: {account.riot_id}</div>}
                     <div className="text-xs text-zinc-500 font-normal">{account.login_email}</div>
                   </TableCell>
                   <TableCell className="text-zinc-300 whitespace-nowrap">{account.region}</TableCell>
@@ -112,6 +114,7 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
                     <div className="flex flex-col gap-1 w-max">
                       <span className="text-sm text-zinc-300">{account.current_rank}</span>
                       <span className="text-xs text-zinc-500">Target: {account.target_rank}</span>
+                      {account.peak_rank && <span className="text-xs text-zinc-500">Peak: {account.peak_rank}</span>}
                     </div>
                   </TableCell>
                   <TableCell className="text-zinc-300 whitespace-nowrap">
@@ -121,6 +124,9 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
                     <Badge variant="outline" className={`font-normal ${getStatusColor(account.status)}`}>
                       {account.status.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
                     </Badge>
+                  </TableCell>
+                  <TableCell className="text-zinc-400 text-sm max-w-[150px] truncate">
+                    {account.notes || '-'}
                   </TableCell>
                   <TableCell className="text-right whitespace-nowrap">
                     <div className="flex justify-end gap-2">
@@ -147,6 +153,7 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
               <div className="flex justify-between items-start gap-2">
                 <div>
                   <h3 className="text-lg font-medium text-white break-all">{account.username}</h3>
+                  {account.riot_id && <p className="text-sm text-zinc-400 break-all">Riot ID: {account.riot_id}</p>}
                   <p className="text-sm text-zinc-500 break-all">{account.login_email}</p>
                 </div>
                 <Badge variant="outline" className={`font-normal whitespace-nowrap shrink-0 ${getStatusColor(account.status)}`}>
@@ -171,6 +178,18 @@ export function AccountsList({ initialAccounts }: { initialAccounts: Account[] }
                   <p className="text-zinc-500 mb-0.5 text-xs">Target Rank</p>
                   <p className="text-zinc-300 font-medium">{account.target_rank}</p>
                 </div>
+                {account.peak_rank && (
+                  <div>
+                    <p className="text-zinc-500 mb-0.5 text-xs">Peak Rank</p>
+                    <p className="text-zinc-300 font-medium">{account.peak_rank}</p>
+                  </div>
+                )}
+                {account.notes && (
+                  <div className="col-span-2">
+                    <p className="text-zinc-500 mb-0.5 text-xs">Notes</p>
+                    <p className="text-zinc-300 font-medium text-sm break-words">{account.notes}</p>
+                  </div>
+                )}
               </div>
 
               <div className="flex justify-end gap-2 pt-2">

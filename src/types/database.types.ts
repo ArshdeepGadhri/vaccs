@@ -22,7 +22,9 @@ export type Database = {
           login_email: string
           notes: string | null
           password: string
+          peak_rank: string | null
           region: string
+          riot_id: string | null
           status: string
           target_rank: string
           updated_at: string | null
@@ -36,7 +38,9 @@ export type Database = {
           login_email: string
           notes?: string | null
           password: string
+          peak_rank?: string | null
           region: string
+          riot_id?: string | null
           status: string
           target_rank: string
           updated_at?: string | null
@@ -50,7 +54,9 @@ export type Database = {
           login_email?: string
           notes?: string | null
           password?: string
+          peak_rank?: string | null
           region?: string
+          riot_id?: string | null
           status?: string
           target_rank?: string
           updated_at?: string | null

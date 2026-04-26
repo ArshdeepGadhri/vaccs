@@ -11,7 +11,7 @@ export function ExportAccountsButton({ accounts }: { accounts: Account[] }) {
     if (accounts.length === 0) return
 
     // Explicitly define order to prevent UUIDs from cluttering the front.
-    const headers = ['username', 'password', 'login_email', 'region', 'current_rank', 'target_rank', 'status', 'notes', 'created_at']
+    const headers = ['username', 'riot_id', 'password', 'login_email', 'region', 'current_rank', 'peak_rank', 'target_rank', 'status', 'notes', 'created_at']
     const csvRows = []
     
     // Header block

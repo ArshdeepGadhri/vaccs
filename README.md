@@ -33,6 +33,19 @@ A private dashboard for managing gaming accounts — built as a full-stack portf
 | Animations | GSAP, Lenis |
 | Deployment | Vercel |
 
+## Security Note
+
+⚠️ **Password Storage Warning**: This application stores Valorant Alt passwords in plain text in the database. This is intentional for a gaming account management tool but should **not** be used for sensitive credentials. For production use with sensitive data, implement encryption or hash passwords with a strong algorithm like bcrypt.
+
+## Screenshots
+
+![Dashboard Screenshot](https://i.postimg.cc/RVbjPTtV/Screenshot-2026-05-01-182020.png)
+> *Note: Replace the placeholder above with an actual screenshot once available.*
+
+- **Dark UI** — Polished dark theme with Lenis smooth scroll
+- **Responsive** — Desktop table view, mobile card layout
+- **Live Search** — Filter accounts by username, rank, and status
+
 ## Getting Started
 
 ### 1. Clone the repo
@@ -106,6 +119,16 @@ src/
 ├── lib/supabase/         # Supabase server/client helpers
 └── types/                # Database type definitions
 ```
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork this repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
